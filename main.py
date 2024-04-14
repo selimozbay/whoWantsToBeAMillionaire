@@ -43,8 +43,6 @@ prize_money = 0
 
 # print question numbers and values
 def print_q_and_v(e):
-    z = ""
-    j = ""
     for x, y in questions_n_and_v.items():
         if len(str(x)) == 1:
             z = " " + str(x)
@@ -164,12 +162,46 @@ def ask_question(x):
                         v = random.randint(0, len(options_v) - 1)
                         if options_v[v] != answer:
                             print("Your friend's answer is: ", options_v[v])
-                            y = 1
+                            y += 1
                             break
                 else:
                     print("Your friend's answer is: ", answer)
 
                 lifelines.remove('2 Phone a Friend')
+                available_choices.remove("2")
+            # ask the audience
+            elif user_answer == "3":
+                r1 = random.randint(0, 100)
+                r2 = random.randint(0, 100 - r1)
+                r3 = random.randint(0, 100 - r1 - r2)
+                r4 = 100 - r3 - r2 - r1
+
+                a = "A) "
+                for _ in range(r1):
+                    a += "|"
+                a += "   %" + str(r1)
+                print(a)
+
+                b = "B) "
+                for _ in range(r2):
+                    b += "|"
+                b += "   %" + str(r2)
+                print(b)
+
+                c = "C) "
+                for _ in range(r3):
+                    c += "|"
+                c += "   %" + str(r3)
+                print(c)
+
+                d = "D) "
+                for _ in range(r4):
+                    d += "|"
+                d += "   %" + str(r4)
+                print(d)
+
+                lifelines.remove('3 Ask the Audience')
+                available_choices.remove("3")
 
         else:
             "Incorrect input"
