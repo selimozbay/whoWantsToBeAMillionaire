@@ -1,4 +1,4 @@
-# Who Wants to Be a Millionare
+# Who Wants to Be a Millionaire
 """
 ("**** ****** **** *** ** **** **** ****?", --> question
          "*****", --> correct answer
@@ -149,7 +149,7 @@ questions = (
          "Manchester",
          "Leeds")
     ),
-    # 11st questions
+    # 11th questions
     (
         ("Complete the name of this Cumbrian Town,…-in-Furness?",
          "Barrow",
@@ -163,7 +163,7 @@ questions = (
          "Lyons",
          "Nice")
     ),
-    # 12nd questions
+    # 12th questions
     (
         ("According to the title of the film, Brad Pitt’s character spent ‘Seven Years In….’?",
          "Tibet",
@@ -183,7 +183,7 @@ questions = (
          "Thursday",
          "Friday")
     ),
-    # 13rd questions
+    # 13th questions
     (
         ("What was the middle name of the artist LS Lowry?",
          "Stephen",
@@ -233,3 +233,62 @@ questions = (
     )
 
 )
+
+lifelines = ["Fifty-Fifty", "Phone a Friend", "Ask the Audience"]
+questions_numbers_and_values = {
+    1: 100,
+    2: 200,
+    3: 300,
+    4: 500,
+    5: 1000,
+    6: 2000,
+    7: 4000,
+    8: 8000,
+    9: 16000,
+    10: 32000,
+    11: 64000,
+    12: 125000,
+    13: 250000,
+    14: 500000,
+    15: 1000000,
+}
+
+episode = 4
+
+
+# print question numbers and values
+def print_q_and_v(e):
+    z = ""
+    j = ""
+    for x, y in questions_numbers_and_values.items():
+        if len(str(x)) == 1:
+            z = " " + str(x)
+        else:
+            z = x
+
+        if e > x:
+            j = str(y) + " ✓"
+        elif e == x:
+            j = str(y) + " ←--"
+        else:
+            j = str(y)
+
+        if x in {2, 5, 10, 15}:
+            j += "  Guaranteed"
+        print(str(z), "- £" + str(j))
+
+
+while True:
+
+    # print game title
+    print("Who Wants to Be a Millionaire")
+
+    # print question numbers and values
+    print_q_and_v(5)
+
+    # print jokers
+    print("\nLifelines")
+    for i in lifelines:
+        print(i, end=" / ")
+
+    break
