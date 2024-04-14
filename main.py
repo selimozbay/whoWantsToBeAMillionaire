@@ -9,13 +9,15 @@
 """
 
 import os
-import time
 import random
+
 import questions as qs
 
 # all questions
 
-lifelines = ["Fifty-Fifty", "Phone a Friend", "Ask the Audience"]
+lifelines_org = ['1 Fifty-Fifty', '2 Phone a Friend', '3 Ask the Audience']
+lifelines = list()
+
 questions_n_and_v = {
     1: 100,
     2: 200,
@@ -32,24 +34,6 @@ questions_n_and_v = {
     13: 250000,
     14: 500000,
     15: 1000000,
-}
-
-question_times = {
-    1: 15,
-    2: 15,
-    3: 15,
-    4: 15,
-    5: 15,
-    6: 30,
-    7: 30,
-    8: 30,
-    9: 45,
-    10: 45,
-    11: -1,
-    12: -1,
-    13: -1,
-    14: -1,
-    15: -1,
 }
 
 episode = 0
@@ -80,16 +64,19 @@ def print_q_and_v(e):
 
 
 def beginning():
+    global lifelines
     # print game title
-    print("Who Wants to Be a Millionaire")
+    print(
+        "______Who Wants to Be a Millionaire______\nMake choice (a, b, c, d)\nGet lifelines (1, 2, 3)\nLeave with prize (q)\n")
 
+    lifelines = lifelines_org
     # print question numbers and values
     print_q_and_v(episode)
 
     # print jokers
     print("\nLifelines")
-    for i in lifelines:
-        print(i, end=" / ")
+    for i in lifelines_org:
+        print(i)
 
 
 while True:
@@ -105,6 +92,8 @@ while True:
             os.system('cls||clear')
             print("Bye")
             episode = 0
+            prize_money = 0
+            lifelines = []
             go_on = False
         break
     else:
@@ -112,17 +101,18 @@ while True:
         continue
 
 
-def print_question(q, o, o2, ):
+def print_question(q, o, o2):
     print(q)
     for m, n in enumerate(o):
         print(n, o2[m])
 
 
 def ask_question(x):
+    global go_on
     answer = ""
     options = set()
-    opt_k = ["A) ", "B) ", "C) ", "D) "]
-    opt_v = list()
+    options_k = ["A) ", "B) ", "C) ", "D) "]
+    options_v = list()
 
     print("\nQuestion", str(episode), "- £" + str(questions_n_and_v[x]))
 
@@ -136,27 +126,39 @@ def ask_question(x):
         options.add(qs.questions[x - 1][rdn_question][j])
 
     for k in options:
-        opt_v.append(k)
+        options_v.append(k)
 
     # define true choice
     answer = qs.questions[x - 1][rdn_question][1]
 
-    question_time = question_times[x]
+    os.system('cls||clear')
 
-    if question_time != -1:
-        while True:
-            os.system('cls||clear')
+    print_question(question, options_k, options_v)
 
-            print("Left Time: ", question_time)
-            print_question(question, opt_k, opt_v)
+    while True:
+        user_answer = input("Make a choice: ").lower()
 
-            time.sleep(1)
-            question_time -= 1
-            if question_time == 0:
-                os.system('cls||clear')
-                print("Game over. You win £", prize_money)
-    else:
-        print_question(question, opt_k, opt_v)
+        if user_answer in {answer.lower(), "a", "b", "c", "d", "q", "1", "2", "3"}:
+
+            if user_answer == "1":
+
+                if '1 Fifty-Fifty' in lifelines:
+
+                    for x in range(2):
+                        rdn = random.randint(0, 4)
+                        if options_v[rdn] != answer:
+                            options_v.pop(rdn)
+                            options_k.pop(rdn)
+                        else:
+                            rdn = random.randint(0, 4)
+                            options_v.pop(rdn)
+                            options_k.pop(rdn)
+                    lifelines.remove('1 Fifty-Fifty')
+                    print_question(question, options_k, options_v)
+
+        else:
+            "Incorrect input"
+            continue
 
 
 while go_on:

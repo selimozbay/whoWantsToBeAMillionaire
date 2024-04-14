@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="started to work on ask question func">
+    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="finished ask question func">
+      <changelist_data name="Selim Özbay" email="selimozbay@yandex.com" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -21,8 +22,26 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Selim Özbay &lt;selimozbay@yandex.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "selimozbay"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/selimozbay/whoWantsToBeAMillionaire.git",
+    "accountId": "279058f7-3121-485b-a66c-66feb6e31287"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
@@ -104,13 +123,24 @@
       <option name="project" value="LOCAL" />
       <updated>1713103214515</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finished ask question func">
+      <option name="closed" value="true" />
+      <created>1713106594521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713106594521</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="small question bank added" />
     <MESSAGE value="values table function created" />
     <MESSAGE value="started to work on ask question func" />
-    <option name="LAST_COMMIT_MESSAGE" value="started to work on ask question func" />
+    <MESSAGE value="finished ask question func" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished ask question func" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
