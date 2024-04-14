@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="small question bank added">
+    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="values table function created">
+      <change afterPath="$PROJECT_DIR$/questions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -88,11 +89,20 @@
       <option name="project" value="LOCAL" />
       <updated>1713092076299</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="values table function created">
+      <option name="closed" value="true" />
+      <created>1713095103881</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713095103881</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="small question bank added" />
-    <option name="LAST_COMMIT_MESSAGE" value="small question bank added" />
+    <MESSAGE value="values table function created" />
+    <option name="LAST_COMMIT_MESSAGE" value="values table function created" />
   </component>
 </project>
