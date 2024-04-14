@@ -45,15 +45,16 @@ question_times = {
     8: 30,
     9: 45,
     10: 45,
-    11: 0,
-    12: 0,
-    13: 0,
-    14: 0,
-    15: 0,
+    11: -1,
+    12: -1,
+    13: -1,
+    14: -1,
+    15: -1,
 }
 
 episode = 0
 go_on = False
+prize_money = 0
 
 
 # print question numbers and values
@@ -96,10 +97,7 @@ while True:
     beginning()
 
     shall_go_on = input("\n\nDo you wanna start? e/h")
-    if not shall_go_on in {"e", "h\n"}:
-        print("Incorrect input!")
-        continue
-    else:
+    if shall_go_on in {"e", "h\n"}:
         if shall_go_on == "e":
             episode = 1
             go_on = True
@@ -109,37 +107,61 @@ while True:
             episode = 0
             go_on = False
         break
+    else:
+        print("Incorrect input!")
+        continue
+
+
+def print_question(q, o, o2, ):
+    print(q)
+    for m, n in enumerate(o):
+        print(n, o2[m])
 
 
 def ask_question(x):
     answer = ""
-    other_choices = []
+    options = set()
+    opt_k = ["A) ", "B) ", "C) ", "D) "]
+    opt_v = list()
 
     print("\nQuestion", str(episode), "- £" + str(questions_n_and_v[x]))
 
-    # get question number from pool
-    rdn_question = random.randint(0, len(qs.questions[x - 1]))
+    # get random question number from pool
+    rdn_question = random.randint(0, len(qs.questions[x - 1]) - 1)
 
     # define the question
     question = qs.questions[x - 1][rdn_question][0]
 
-    for j in range(4):
-        other_choices.append(qs.questions[x - 1][rdn_question][j])
+    for j in range(1, 5):
+        options.add(qs.questions[x - 1][rdn_question][j])
+
+    for k in options:
+        opt_v.append(k)
 
     # define true choice
     answer = qs.questions[x - 1][rdn_question][1]
 
-    while True:
+    question_time = question_times[x]
 
+    if question_time != -1:
+        while True:
+            os.system('cls||clear')
 
-        print(question)
+            print("Left Time: ", question_time)
+            print_question(question, opt_k, opt_v)
 
-
+            time.sleep(1)
+            question_time -= 1
+            if question_time == 0:
+                os.system('cls||clear')
+                print("Game over. You win £", prize_money)
+    else:
+        print_question(question, opt_k, opt_v)
 
 
 while go_on:
     os.system('cls||clear')
     print_q_and_v(episode)
 
-    ask_question(1)
+    ask_question(episode)
     break
