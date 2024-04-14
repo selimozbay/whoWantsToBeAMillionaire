@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="finished ask question func">
-      <changelist_data name="Selim Özbay" email="selimozbay@yandex.com" />
+    <list default="true" id="e794354e-8355-4137-aa8c-861d3c0a93c3" name="Changes" comment="Fifty-Fifty joker done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -55,6 +54,7 @@
   "keyToString": {
     "Python.asd.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.questions.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main"
   }
@@ -131,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713106594521</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fifty-Fifty joker done">
+      <option name="closed" value="true" />
+      <created>1713120949792</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713120949792</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,7 +147,8 @@
     <MESSAGE value="values table function created" />
     <MESSAGE value="started to work on ask question func" />
     <MESSAGE value="finished ask question func" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished ask question func" />
+    <MESSAGE value="Fifty-Fifty joker done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fifty-Fifty joker done" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

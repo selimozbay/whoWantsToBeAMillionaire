@@ -131,6 +131,8 @@ def ask_question(x):
     # define true choice
     answer = qs.questions[x - 1][rdn_question][1]
 
+    available_choices = [answer.lower(), "a", "b", "c", "d", "q", "1", "2", "3"]
+
     os.system('cls||clear')
 
     print_question(question, options_k, options_v)
@@ -138,23 +140,36 @@ def ask_question(x):
     while True:
         user_answer = input("Make a choice: ").lower()
 
-        if user_answer in {answer.lower(), "a", "b", "c", "d", "q", "1", "2", "3"}:
-
+        if user_answer in available_choices:
+            # 50-50
             if user_answer == "1":
+                deleted_choices = 0
 
-                if '1 Fifty-Fifty' in lifelines:
+                while deleted_choices != 2:
 
-                    for x in range(2):
-                        rdn = random.randint(0, 4)
-                        if options_v[rdn] != answer:
-                            options_v.pop(rdn)
-                            options_k.pop(rdn)
-                        else:
-                            rdn = random.randint(0, 4)
-                            options_v.pop(rdn)
-                            options_k.pop(rdn)
-                    lifelines.remove('1 Fifty-Fifty')
-                    print_question(question, options_k, options_v)
+                    rdn = random.randint(0, len(options_v) - 1)
+                    if options_v[rdn] != answer:
+                        options_v.pop(rdn)
+                        options_k.pop(rdn)
+                        deleted_choices += 1
+
+                lifelines.remove('1 Fifty-Fifty')
+                available_choices.remove("1")
+                print_question(question, options_k, options_v)
+            # phone a friend
+            elif user_answer == "2":
+                if random.randint(0, 100) > 75:
+                    y = 0
+                    while y < 1:
+                        v = random.randint(0, len(options_v) - 1)
+                        if options_v[v] != answer:
+                            print("Your friend's answer is: ", options_v[v])
+                            y = 1
+                            break
+                else:
+                    print("Your friend's answer is: ", answer)
+
+                lifelines.remove('2 Phone a Friend')
 
         else:
             "Incorrect input"
