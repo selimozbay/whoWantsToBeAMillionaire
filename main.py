@@ -39,6 +39,7 @@ questions_n_and_v = {
 episode = 0
 go_on = False
 prize_money = 0
+g_prize_money = 0
 
 
 # print question numbers and values
@@ -106,8 +107,9 @@ def print_question(q, o, o2):
 
 
 def ask_question(x):
-    global go_on
+    global go_on, episode, prize_money, g_prize_money
     answer = ""
+    answer_key = ""
     options = set()
     options_k = ["A) ", "B) ", "C) ", "D) "]
     options_v = list()
@@ -128,6 +130,9 @@ def ask_question(x):
 
     # define true choice
     answer = qs.questions[x - 1][rdn_question][1]
+
+    answer_key = options_k[options_v.index(answer)][0].lower()
+    print(answer_key)
 
     available_choices = [answer.lower(), "a", "b", "c", "d", "q", "1", "2", "3"]
 
@@ -202,6 +207,20 @@ def ask_question(x):
 
                 lifelines.remove('3 Ask the Audience')
                 available_choices.remove("3")
+            # true answer
+
+            if user_answer in {answer_key, answer}:
+                os.system('cls||clear')
+                print("Congratulations correct answer! You earned £", questions_n_and_v[x], "Let's keep going.")
+                if episode in {5, 10, 15}:
+                    g_prize_money = questions_n_and_v[x]
+                prize_money = questions_n_and_v[x]
+                episode += 1
+                ask_question(episode)
+                if episode == 16:
+                    os.system('cls||clear')
+                    print("Congratulations, you won the big prize!")
+                    break
 
         else:
             "Incorrect input"
