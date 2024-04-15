@@ -1,3 +1,5 @@
+#  Copyright (c) 2024.
+
 # Who Wants to Be a Millionaire
 
 """
@@ -132,7 +134,6 @@ def ask_question(x):
     answer = qs.questions[x - 1][rdn_question][1]
 
     answer_key = options_k[options_v.index(answer)][0].lower()
-    print(answer_key)
 
     available_choices = [answer.lower(), "a", "b", "c", "d", "q", "1", "2", "3"]
 
@@ -208,11 +209,11 @@ def ask_question(x):
                 lifelines.remove('3 Ask the Audience')
                 available_choices.remove("3")
             # true answer
-
             if user_answer in {answer_key, answer}:
                 os.system('cls||clear')
                 print("Congratulations correct answer! You earned £", questions_n_and_v[x], "Let's keep going.")
-                if episode in {5, 10, 15}:
+                if episode in {2, 5, 10, 15}:
+                    print("£", questions_n_and_v[x], "guaranteed.")
                     g_prize_money = questions_n_and_v[x]
                 prize_money = questions_n_and_v[x]
                 episode += 1
@@ -221,9 +222,13 @@ def ask_question(x):
                     os.system('cls||clear')
                     print("Congratulations, you won the big prize!")
                     break
+            else:
+                os.system('cls||clear')
+                print("Unfortunately wrong answer!\nAnswer is", answer, "\nYou won £", g_prize_money)
+                break
 
         else:
-            "Incorrect input"
+            print("Incorrect input")
             continue
 
 
